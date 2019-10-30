@@ -20,7 +20,7 @@ github https://github.com/m5stack
 - 部品の調達  https://www.switch-science.com/catalog/list/1/
 - 情報動画 【はじめてのM5Stack 】第2回 機能チェックと初期セットアップ https://mag.switch-science.com/2019/10/23/m5go-setup/
 
-### ふるさと納税で mixeo:bitr を入手
+### ふるさと納税で micro:bit を入手
 http://www.citydo.com/furusato/official/saitama/sayama/items/item150.html
 
 ### 注目の書籍
@@ -72,7 +72,7 @@ https://twitter.com/komde/status/1182261774956953602
 
 - 中央の位置で (0, 0)  # 左の回転 0, 右の回転 0)
 - 90 度の無垢で (1, 1) # 左右とも Max 前進回転
-- -90 度の位置で (-1,-1) # 左右とも MAx 後退)
+- -90 度の位置で (-1,-1) # 左右とも Max 後退)
 - 0 度の位置で (1, 0) # 左だけが回転させて、車を右に旋回させる
 
 joystic から出力値 を平行移動してから 反時計周りに 45 度回転させて、なにか係数をかければ、求めるような数値に変換できる、
@@ -85,10 +85,10 @@ ESP-WROOM-02の直接通信モードESPNOWを試す　https://jiwashin.blogspot.
 > ESP NOWは生パケットをやりとりするモード。DHCPどころかチャンネル自動選択もないので基本的にはチャンネル指定して送りっぱなし。つまり、余計な処理がない分オーバーヘッドも消費電力が少ないということです。
 > ...
 
-{left: 0, rogjt: 0, color: "red"} のような Map を作り、それを json.dump して、送信する、
-受信側(beetleC) では json.load して Map にも. loft, rit の数値に応じてモーターを回し、 colore で LED を発光させる。
+{left: 0, right: 0, color: "red"} のような Map を作り、それを json.dump して、送信する、
+受信側(beetleC) では json.load して Map にも. loft, right の数値に応じてモーターを回し、 colore で LED を発光させる。
 
-beetleC 側のパウログラムでは、 通信を受けたときの動作は callback としてメソッド定義するのだが、
+beetleC 側のプログラムでは、 通信を受けたときの動作は callback としてメソッド定義するのだが、
 UIFLow でのブロックプログラミングでは、自然に ”データ受信したとき" のブロックをおいて、その中に処理ブロッをおいていくだけ。
 
 https://github.com/katoy/m5stack_sample_sensor/blob/master/beetleC_with_joystick/car.py
