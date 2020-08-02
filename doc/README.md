@@ -57,7 +57,7 @@ https://qiita.com/yi_2018/items/822811c0ba29725354ee
 では ゲームパッド + http 通信で操作した例が示されている。
 
 https://twitter.com/komde/status/1182261774956953602
-では、 html ソースを変更して、画面を変kポウした例がしめされている
+では、 html ソースを変更して、画面を変更した例がしめされている
 
 ## 私の改善例
 
@@ -92,3 +92,25 @@ beetleC 側のプログラムでは、 通信を受けたときの動作は call
 UIFLow でのブロックプログラミングでは、自然に ”データ受信したとき" のブロックをおいて、その中に処理ブロッをおいていくだけ。
 
 https://github.com/katoy/m5stack_sample_sensor/blob/master/beetleC_with_joystick/car.py
+
+
+# 気温/湿度/気圧の観測
+
+[../atom/env_2_matrix.m5f](../atom/env_2_matrix.m5f) は、
+atom_matrix + env2 で測定した気温/湿度/気圧 Ambient でグラフ表示する例です。
+
+![../atom/emv2_atom_matrix.png](../atom/emv2_atom_matrix.png)
+
+5 分毎に測定して Ambient に送信してます。ボタンA (atom_matrix の画面) を押すと、直ちに想定して送信もします。  
+Ambientent との通信が成功すれば、右上の LED を光らせます(一秒間)。  
+通信が失敗すれば、左上の LED を光らせます(一秒間)。  
+
+![../atom/ambient_env2.pn](../atom/ambient_env2.png)
+
+参考情報
+- [https://ambidata.io/samples/m5stack/uiflow/](https://ambidata.io/samples/m5stack/uiflow/)  
+UIFlow（Blockly）でAmbientにデータを送る
+
+- [https://twitter.com/gomihgy/status/1189082065330851840](https://twitter.com/gomihgy/status/1189082065330851840)  
+  M5Stack のUIFlowのブロックで、Ambient にデータを送るメモ  
+
