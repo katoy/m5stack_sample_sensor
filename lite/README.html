@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- vscode-markdown-toc -->
+<ul>
+<li>
+<ol>
+<li><a href="#">概要</a></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><a href="#http">簡易 http サーバー</a></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><a href="#Http">標準の Http ブロック</a></li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><a href="#-1">カスタムブロック</a></li>
+</ol>
+<ul>
+<li>4.1. <a href="#-1">プログラム作成手順</a></li>
+<li>4.2. <a href="#-1">カスタムブロックの作り方</a></li>
+</ul>
+</li>
+</ul>
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+<h1 id="atoom-lite--env-2">atoom lite + Env 2</h1>
+<h2 id="1-a-namea%E6%A6%82%E8%A6%81">1. <a name=''></a>概要</h2>
+<p>atom lite に Env 2 unit を接続し、uiflow でその値を取得するプログラムを書いてみました。<br>
+atom lite には LED が１つ付いているだけで、数値などを表示することはできません。<br>
+そこで 数値を http サーバーに値を送るようにします。
+http サーバー側のログなので、Env 2 で取得した値を確認しようということです。</p>
+<p>http 送信のブロックは標準で用意されていますが、custom block をつくって hhtp 送信をしてみました。</p>
+<p><img src="screenshots/uiflow-001.png" alt="プログラム"></p>
+<p><img src="screenshots/http-001.png" alt="http"></p>
+<p>環境：</p>
+<ul>
+<li>Uiflow 1.6.2</li>
+<li>macos catalina</li>
+<li>ruby 2.7 (on mac)</li>
+<li><a href="http://ssci.to/6262">atom lite</a></li>
+<li><a href="http://ssci.to/6344">Env 2</a></li>
+</ul>
+<h2 id="2-a-namehttpa%E7%B0%A1%E6%98%93-http-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC">2. <a name='http'></a>簡易 http サーバー</h2>
+<p>atom lite からの http 送信先の サーバーを用意します。</p>
+<p>言語はなんでもよいのですが、ここでは ruby で書いてみました。
+http GET と POST の要求があったら requer 内容をコンソールに表示するだけのものです。</p>
+<p><a href="./src/http_server.rb">./src/http_server.rb</a></p>
+<p>curl で GET と POST を送ってみます。</p>
+<pre class="hljs"><code><div><span class="hljs-variable">$curl</span> http://localhost:8080/name=123?age=10
+
+<span class="hljs-variable">$curl</span> -X POST -H <span class="hljs-string">"Content-Type: application/json"</span> -d <span class="hljs-string">'{"Name":"kato", "Age":"100"}'</span> localhost:8080
+</div></code></pre>
+<p><img src="./screenshots/http-002.png" alt="http-sarever"></p>
+<p>実際には、 <a href="https://nodered.jp/about/">NODE-Red</a> や, <a href="https://ambidata.io/">Ambient</a> にデータを送ったりするということになるでしょう。</p>
+<h2 id="3-a-namehttpa%E6%A8%99%E6%BA%96%E3%81%AE-http-%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">3. <a name='Http'></a>標準の Http ブロック</h2>
+<p>UiFlow の 高度なブロック の生木 Http のカテゴリーがあります。</p>
+<p><img src="./screenshots/uiflow-002.png" alt="heepブロック"></p>
+<h2 id="4-a-name-1a%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">4. <a name='-1'></a>カスタムブロック</h2>
+<p>atim lite の UiFlow でのプログラムで変数の値などをデバッグのために出力させるのに使いやすいようにカスタムブロックをつくってみました。（シリアル出力の代わりに使うことを想定しています)</p>
+<p><img src="./screenshots/custom-block-001.png" alt="heepブロック"></p>
+<p>各ブロックの機能を述べます。</p>
+<ul>
+<li>
+<p>init_debug_http
+http サーバー呼び出しの初期化をします。<br>
+http サーバーの url をテキストで指定します。(例： &quot;http://10.0.1.1:8080)</p>
+</li>
+<li>
+<p>send_data_debug_http
+テキストや数値などを Get で http サーバーに送ります。<br>
+送信が成功すれば、LED が青になります。<br>
+失敗すれば、LED が赤になります。<br>
+data に送信したい情報を指定します。
+内部で str(data) されて GET で送信されます。</p>
+</li>
+<li>
+<p>send_map_debug_http
+Map を Post で  http サーバーに送ります。<br>
+送信が成功すれば、LED が青になります。<br>
+失敗すれば、LED が赤になります。<br>
+map_data に Map を指定します。</p>
+</li>
+</ul>
+<p>このカスタムブロックをつかったプログラム例を示します。
+<img src="screenshots/uiflow-001.png" alt="プログラム"></p>
+<h3 id="41-a-name-1a%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E4%BD%9C%E6%88%90%E6%89%8B%E9%A0%86">4.1. <a name='-1'></a>プログラム作成手順</h3>
+<p>atom lite に Env 2 をケーブルでつなげます。ケーブルで接続しただけでは、 uilow から Env 2 は利用できません。<br>
+Env 2 を uiflow に登録する必要があります。</p>
+<p>画面左下の + アイコンをクリックします。
+<img src="screenshots/unit-001.png" alt="unitの登録前"></p>
+<p>Env 1 アイコンをクリックして チェックマークが付いたのを確認したら、右下にある OK ボタンをクリックします。
+<img src="screenshots/unit-002.png" alt="unit の選択"></p>
+<p>Unit カテゴリーに環境ブロックが追加されます。
+<img src="screenshots/unit-003.png" alt="unt 登録終了"></p>
+<p>debug_http ブロックを追加するするには次のようにします。
+<a href="dest/debug_http.m5b">debug_http.mb5</a> を予め PC の任意の場所に download して起きます。
+Custom カテゴリーを開き、 open *.m5b file をクリックします。</p>
+<p><img src="screenshots/load-block-001.png" alt="ブロック追加"></p>
+<p>ファイル指定ダイアログが開かれるので、debug_http.m5b を指定します。
+load が終了すれば、Custom カテゴリーに debug_http ブロックが追加されます。
+<img src="screenshots/load-block-002.png" alt="ブロック追加後"></p>
+<p>このddbug_http ブロックにあるブロックは、他のブロックと同等に利用できます。</p>
+<p>これで、Env 2 からの情報取得と、カスタムブロック debug_http を利用できるようになりました。</p>
+<p>init_debug_http で 送信先 http サーバーの URL を設定し、
+ループ中で数秒感覚で Env 2 から得た気温、湿度、気圧の値を
+Map にして send_map_debug_http で送るようにブロックを組み上げていってプログラムを作成させます。<br>
+(あるいは、 作成済みのプログラムフィアル <a href="dest/main_0.m5f">dest/main_0.m5f</a> を load してください)</p>
+<p>プログラムを実行させれば、http サーバー起動をした PC のコンソールに 4 秒ごとに 気温, 湿度, 気圧が表示されます。<br>
+atom lite の LED は 4 秒音に 青くなりあす。（送信が失敗している場合は LED は赤くなります。)<br>
+<img src="screenshots/http-server-out.png" alt="ブロック追加後"></p>
+<h3 id="42-a-name-1a%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9">4.2. <a name='-1'></a>カスタムブロックの作り方</h3>
+<p>このカスタムブロックの作り方を述べます。<br>
+カスタムブロックの作り方を覚えると、uiflow でのプログラムの幅が広がります。</p>
+<p>create *m4b file ボタンをクリックします。
+<img src="screenshots/make-block-000.png" alt="作成開始"></p>
+<p>ブロック作成のための Block Maker 画面が開きます。
+<img src="screenshots/make-block-00x.png" alt="作成初期"></p>
+<p>init_debug_http ブロックを編集します。<br>
+このブロックは Excute タイプと指定します。
+パラメータの一番目はブロックの名前を Label として指定します。これはブロックのアイコンにブロック名として表示されます。
+２番目のパラメータに variable タイプで url を指定します。<br>
+コード部は以下のものを指定します。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> urequests
+_g_url_debug_http=${url}
+_g_success_color_debug_http=<span class="hljs-number">0x000099</span>
+_g_fail_color_debug_http=<span class="hljs-number">0x990000</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_g_send_data_debug_http</span><span class="hljs-params">(data)</span>:</span>
+  <span class="hljs-keyword">try</span>:
+    urequests.request(method=<span class="hljs-string">'GET'</span>,url=_g_url_debug_http+<span class="hljs-string">"/data="</span>+str(data),headers={})
+    rgb.setColorAll(_g_success_color_debug_http)
+  <span class="hljs-keyword">except</span>:
+    rgb.setColorAll(_g_fail_color_debug_http)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_g_send_map_data_debug_http</span><span class="hljs-params">(map_data)</span>:</span>
+  <span class="hljs-keyword">try</span>:
+    urequests.request(method=<span class="hljs-string">'POST'</span>,url=_g_url_debug_http,json=map_data,headers={<span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json;charset=UTF-8'</span>})
+    rgb.setColorAll(_g_success_color_debug_http)
+  <span class="hljs-keyword">except</span>:
+    rgb.setColorAll(_g_fail_color_debug_http)
+</div></code></pre>
+<p><img src="screenshots/make-block-001.png" alt="作成1"></p>
+<p>send_data_debug_http ブロックを編集します。<br>
+２番目のパラメータに variable タイプで data を指定します。<br>
+コード部は以下のものを指定します。</p>
+<pre class="hljs"><code><div>_g_send_data_debug_http(${data})
+</div></code></pre>
+<p><img src="screenshots/make-block-002.png" alt="作成2"></p>
+<p>send_map_debug_http ブロックを編集します。<br>
+２番目のパラメータに variable タイプで map_data を指定します。<br>
+コード部は以下のものを指定します。</p>
+<pre class="hljs"><code><div>_g_send_map_data_debug_http(${map_data})
+</div></code></pre>
+<p><img src="screenshots/make-block-003.png" alt="作成3"></p>
+<p>download ボタンをクリックして、m5b ファイルを作成します。
+<img src="screenshots/make-block-004.png" alt="作成就労"></p>
+<h2 id="%E8%AA%B2%E9%A1%8C">課題</h2>
+<p>現状のコードでは、 map データに日本語を指定すると、http サーバー側では、データが欠けて表示されてしまいます。<br>
+修正方法は調査中です...</p>
+<p><img src="screenshots/bug-003.png" alt="プログラム3"></p>
+<p><img src="screenshots/bug-002.png" alt="出力"></p>
+
+</body>
+</html>
